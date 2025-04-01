@@ -1,16 +1,20 @@
 package com.example.mtg
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class SearchActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_search)
 
-        val resultsTextView = findViewById<TextView>(R.id.searchTextView)
+        val cardsRecyclerView = findViewById<RecyclerView>(R.id.)
+        val refilterButton = findViewById<Button>(R.id.)
 
         val cardName = intent.getStringExtra("CARD_NAME") ?: ""
         val cardSet = intent.getStringExtra("CARD_SET") ?: ""
@@ -19,13 +23,16 @@ class SearchActivity : AppCompatActivity() {
         val cardType = intent.getStringExtra("CARD_Type") ?: ""
         val manaCost = intent.getStringExtra("MANA_COST") ?: ""
 
-        //Teste:
-        val resultText = "Nome: $cardName\\nSet: $cardSet\\nCor: $cardColor\\nRaridade: $cardRarity\\nTipo: $cardType\\nCusto de Mana: $manaCost"
-        resultsTextView.text = resultText
 
+        //Configuração do RecyclerView (Tem muito chão pela frente)
         cardsRecyclerView.layoutManager = LinearLayoutManager(this)
         cardsRecyclerView.adapter = CardsAdapter(emptyList())
 
-
+        //Botão que volta pra tela inicial
+        refilterButton.setOnClickListener {
+            val intent = Intent(this, FilterActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
