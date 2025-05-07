@@ -8,4 +8,7 @@ interface ScryfallApi {
     suspend fun searchCards(
         @Query("q") query: String
     ): ScryfallResponse
+
+    @GET("sets")
+    suspend fun getAllSets(): SetListSearched
 }

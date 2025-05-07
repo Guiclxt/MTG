@@ -6,21 +6,30 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import com.example.mtg.CardFilters
 import com.example.mtg.Constants
+import com.example.mtg.FilterViewModel
 import com.example.mtg.R
+import kotlinx.coroutines.launch
 
 class FilterActivity : AppCompatActivity() {
+
+    private val filterViewModel: FilterViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_filter)
 
         //Variáveis do layout:
         val cardNameEditText = findViewById<EditText>(R.id.cardNameEditText)
-        val cardSetEditText = findViewById<EditText>(R.id.cardSetEditText)
         val manaCostEditText = findViewById<EditText>(R.id.manaCostEditText)
 
+        val cardSetSpinner = findViewById<Spinner>(R.id.cardSetSpinner)
         val cardColorSpinner = findViewById<Spinner>(R.id.cardColorSpinner)
         val cardRaritySpinner = findViewById<Spinner>(R.id.cardRaritySpinner)
         val cardTypeSpinner = findViewById<Spinner>(R.id.cardTypeSpinner)
@@ -37,18 +46,30 @@ class FilterActivity : AppCompatActivity() {
         cardRaritySpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, raritiesOptions)
         cardTypeSpinner.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, typeOptions)
 
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                filterViewModel.sets.collect { setNames ->
+                    val adapter = ArrayAdapter(this@FilterActivity, android.R.layout.simple_spinner_item, setNames)
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                    cardSetSpinner.adapter = adapter
+                }
+            }
+        }
+
         searchButton.setOnClickListener {
             val filters = CardFilters(
                 name = cardNameEditText.text.toString(),
-                set = cardSetEditText.text.toString(),
+                set = cardSetSpinner.selectedItem?.toString() ?: "",
                 color = cardColorSpinner.selectedItem.toString(),
                 rarity = cardRaritySpinner.selectedItem.toString(),
                 type = cardTypeSpinner.selectedItem.toString(),
                 manaCost = manaCostEditText.text.toString()
             )
+
             val intent = Intent(this, SearchActivity::class.java)
             intent.putExtra(Constants.FILTER_KEY, filters)
             startActivity(intent)
+            finish()
         }
     }
 }

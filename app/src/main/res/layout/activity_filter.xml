@@ -5,7 +5,7 @@
     android:id="@+id/filter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FilterActivity">
+    tools:context=".activities.FilterActivity">
 
     <EditText
         android:id="@+id/cardNameEditText"
@@ -19,8 +19,8 @@
         android:hint="Nome"
         />
 
-    <EditText
-        android:id="@+id/cardSetEditText"
+    <Spinner
+        android:id="@+id/cardSetSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/cardNameEditText"
@@ -28,14 +28,13 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:hint="Código do set"
         />
 
     <Spinner
         android:id="@+id/cardColorSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/cardSetEditText"
+        app:layout_constraintTop_toBottomOf="@id/cardSetSpinner"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"

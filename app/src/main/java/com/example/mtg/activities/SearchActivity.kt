@@ -20,8 +20,6 @@ import kotlinx.coroutines.launch
 
 class SearchActivity : AppCompatActivity() {
 
-    private lateinit var cardsRecyclerView: RecyclerView
-    private lateinit var refilterButton: Button
     private val viewModel: SearchViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

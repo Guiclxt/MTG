@@ -54,6 +54,7 @@ dependencies {
 
     //Implementando ViewModelScope
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.0-rc01")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.9.0-rc01")
 
     implementation(libs.glide)
     annotationProcessor(libs.glide.compiler)
