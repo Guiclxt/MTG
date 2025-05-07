@@ -40,7 +40,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:prompt="Cores"
         />
 
     <Spinner
@@ -52,7 +51,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:prompt="Raridade"
         />
 
     <Spinner
@@ -64,7 +62,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:prompt="Tipo"
         />
 
     <EditText
