@@ -1,20 +1,22 @@
-package com.example.mtg.activities
+package com.example.mtg.searchActivity
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
+import android.widget.ProgressBar
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.mtg.CardFilters
+import com.example.mtg.filterActivity.CardFilters
 import com.example.mtg.CardsAdapter
 import com.example.mtg.Constants
 import com.example.mtg.R
-import com.example.mtg.RetrofitClient
-import com.example.mtg.SearchViewModel
-import com.example.mtg.activities.FilterActivity
+import com.example.mtg.filterActivity.FilterActivity
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
@@ -46,6 +48,14 @@ class SearchActivity : AppCompatActivity() {
             }
         }
 
+        val loadingCircle = findViewById<ProgressBar>(R.id.loading_circle)
+        lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.isLoading.collect { isLoading ->
+                    loadingCircle.visibility = if (isLoading) View.VISIBLE else View.GONE
+                }
+            }
+        }
 
         refilterButton.setOnClickListener {
             val intent = Intent(this, FilterActivity::class.java)

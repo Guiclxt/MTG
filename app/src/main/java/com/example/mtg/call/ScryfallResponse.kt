@@ -1,4 +1,4 @@
-package com.example.mtg
+package com.example.mtg.call
 
 import java.io.Serializable
 

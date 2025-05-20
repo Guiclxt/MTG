@@ -1,4 +1,4 @@
-package com.example.mtg.activities
+package com.example.mtg.filterActivity
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,10 +11,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
-import com.example.mtg.CardFilters
 import com.example.mtg.Constants
-import com.example.mtg.FilterViewModel
 import com.example.mtg.R
+import com.example.mtg.searchActivity.SearchActivity
 import kotlinx.coroutines.launch
 
 class FilterActivity : AppCompatActivity() {

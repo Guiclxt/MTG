@@ -1,5 +1,6 @@
 package com.example.mtg
 
+import com.example.mtg.call.translators.RarityToApi
 import org.junit.Test
 import org.junit.Assert.assertEquals
 

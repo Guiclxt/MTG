@@ -1,4 +1,4 @@
-package com.example.mtg
+package com.example.mtg.call.translators
 
 object RarityToApi {
     fun translateRarity(rarity: String): String {

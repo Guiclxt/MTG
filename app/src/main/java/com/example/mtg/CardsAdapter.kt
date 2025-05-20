@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.mtg.call.MagicCard
 
 class CardsAdapter(private var cards: List<MagicCard>) :
     RecyclerView.Adapter<CardsAdapter.CardViewHolder>() {

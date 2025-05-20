@@ -1,4 +1,4 @@
-package com.example.mtg
+package com.example.mtg.call
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

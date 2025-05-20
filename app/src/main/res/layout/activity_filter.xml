@@ -5,7 +5,7 @@
     android:id="@+id/filter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.FilterActivity">
+    tools:context=".filterActivity.FilterActivity">
 
     <EditText
         android:id="@+id/cardNameEditText"

@@ -1,4 +1,4 @@
-package com.example.mtg
+package com.example.mtg.call.translators
 
 object TypeToApi {
     fun translateType (type: String): String {
