@@ -1,4 +1,4 @@
-package com.example.mtg.call.translators.set
+package com.example.mtg.call.query.set
 
 data class SetResponse(
     val code: String,

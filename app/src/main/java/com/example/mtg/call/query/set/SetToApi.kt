@@ -1,6 +1,4 @@
-package com.example.mtg.call.translators
-
-import com.example.mtg.call.translators.set.SetResponse
+package com.example.mtg.call.query.set
 
 object SetToApi {
     private val sets = mutableMapOf<String, String>()

@@ -9,7 +9,7 @@ import com.example.mtg.call.MagicCard
 import com.example.mtg.call.query.useCases.RarityQueryUseCase
 import com.example.mtg.call.RetrofitClient
 import com.example.mtg.call.query.useCases.NameQueryUseCase
-import com.example.mtg.call.translators.set.SetQueryUseCase
+import com.example.mtg.call.query.set.SetQueryUseCase
 import com.example.mtg.call.query.useCases.TypeQueryUseCase
 import com.example.mtg.filterActivity.CardFilters
 import com.example.mtg.call.query.QueryBuilder

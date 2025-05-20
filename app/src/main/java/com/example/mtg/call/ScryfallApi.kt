@@ -1,6 +1,6 @@
 package com.example.mtg.call
 
-import com.example.mtg.call.translators.set.SetListSearched
+import com.example.mtg.call.query.set.SetListSearched
 import retrofit2.http.GET
 import retrofit2.http.Query
 

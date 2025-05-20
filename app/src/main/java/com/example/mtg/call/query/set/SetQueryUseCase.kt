@@ -1,6 +1,4 @@
-package com.example.mtg.call.translators.set
-
-import com.example.mtg.call.translators.SetToApi
+package com.example.mtg.call.query.set
 
 class SetQueryUseCase {
     operator fun invoke(set: String): String {
